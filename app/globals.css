@@ -45,6 +45,10 @@ body{font-family:'DM Sans','Noto Sans Tamil',sans-serif;background:var(--ivory);
 .btn-g:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
 .btn-sm{padding:9px 20px;font-size:11px;}
 
+/* Tamil home hero: spacing (only the heading is shown) */
+html[lang="ta"] .hero-om { margin-bottom: 12px; }  /* Om symbol ↔ Krupa gap (default was 28px) */
+html[lang="ta"] .hero-h1 { margin-bottom: 44px; }  /* Krupa ↔ two buttons gap */
+
 /* SECTIONS */
 .sec{padding:80px 48px;max-width:1200px;margin:0 auto;}
 .sec-full{padding:80px 0;background:var(--parchment);}
