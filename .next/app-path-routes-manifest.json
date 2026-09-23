@@ -1,0 +1,23 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/admin/page": "/admin",
+  "/api/ashtotharas/[slug]/route": "/api/ashtotharas/[slug]",
+  "/api/deities/[slug]/route": "/api/deities/[slug]",
+  "/api/deities/route": "/api/deities",
+  "/api/shlokas/[slug]/route": "/api/shlokas/[slug]",
+  "/api/shlokas/route": "/api/shlokas",
+  "/api/stories/route": "/api/stories",
+  "/api/vedas/[slug]/content/route": "/api/vedas/[slug]/content",
+  "/api/vedas/[slug]/route": "/api/vedas/[slug]",
+  "/api/vedas/route": "/api/vedas",
+  "/ashtotharas/[slug]/page": "/ashtotharas/[slug]",
+  "/ashtotharas/page": "/ashtotharas",
+  "/deities/[slug]/page": "/deities/[slug]",
+  "/deities/page": "/deities",
+  "/kids/page": "/kids",
+  "/page": "/",
+  "/shlokas/[slug]/page": "/shlokas/[slug]",
+  "/shlokas/page": "/shlokas",
+  "/vedas/page": "/vedas"
+}

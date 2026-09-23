@@ -1,0 +1,177 @@
+// prisma/schema.prisma
+// Local dev: SQLite   (zero setup, file-based)
+// Production: change provider to "postgresql" and set DATABASE_URL
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ── DEITIES ───────────────────────────────────────────────────────────────────
+model Deity {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  name         String
+  epithet      String
+  symbol       String
+  color        String   @default("#8A6B2C")
+  description  String
+  nameTa        String   @default("")
+  epithetTa     String   @default("")
+  descriptionTa String   @default("")
+  isFeatured   Boolean  @default(false)
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  deletedAt    DateTime?
+
+  shlokas      ShlokaDeityMap[]
+  ashtothara   Ashtothara?
+  stories      StoryDeityMap[]
+
+  @@map("deities")
+}
+
+// ── SHLOKAS ───────────────────────────────────────────────────────────────────
+model Shloka {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  title           String
+  category        String
+  sanskrit        String
+  transliteration String
+  meaning         String
+  benefits        String   @default("")
+  titleTa         String   @default("")
+  meaningTa       String   @default("")
+  benefitsTa      String   @default("")
+  tags            String   @default("[]")   // JSON array stored as string for SQLite
+  isPublished     Boolean  @default(true)
+  isFeatured      Boolean  @default(false)
+  viewCount       Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  deletedAt       DateTime?
+
+  deities         ShlokaDeityMap[]
+
+  @@map("shlokas")
+}
+
+model ShlokaDeityMap {
+  shlokaId    String
+  deityId     String
+  isPrimary   Boolean @default(true)
+
+  shloka      Shloka  @relation(fields: [shlokaId], references: [id], onDelete: Cascade)
+  deity       Deity   @relation(fields: [deityId],  references: [id], onDelete: Cascade)
+
+  @@id([shlokaId, deityId])
+  @@map("shloka_deity_map")
+}
+
+// ── VEDAS ─────────────────────────────────────────────────────────────────────
+model VedaSection {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  subtitle    String
+  description String
+  titleTa       String @default("")
+  subtitleTa    String @default("")
+  descriptionTa String @default("")
+  groupName   String                          // "The Four Vedas" | "Hymns & Mantras" | "Vedanta"
+  icon        String
+  isSukta     Boolean  @default(false)        // true = has verse-by-verse content
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  contents    VedaSectionContent[]
+
+  @@map("veda_sections")
+}
+
+model VedaSectionContent {
+  id              String   @id @default(cuid())
+  sectionId       String
+  languageCode    String                       // "sa" | "en" | "ta" | "hi" | "te" | "kn"
+  verseNum        Int
+  text            String
+  transliteration String   @default("")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  section         VedaSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  @@unique([sectionId, languageCode, verseNum])
+  @@map("veda_section_content")
+}
+
+// ── ASHTOTHARAS ───────────────────────────────────────────────────────────────
+model Ashtothara {
+  id        String   @id @default(cuid())
+  deityId   String   @unique
+  title     String
+  intro     String
+  titleTa   String   @default("")
+  introTa   String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  deity     Deity    @relation(fields: [deityId], references: [id], onDelete: Cascade)
+  names     AshtotharaName[]
+
+  @@map("ashtotharas")
+}
+
+model AshtotharaName {
+  id              String     @id @default(cuid())
+  ashtotharaId    String
+  num             Int
+  nameDevanagari  String
+  transliteration String
+  meaning         String
+  meaningTa       String     @default("")
+
+  ashtothara      Ashtothara @relation(fields: [ashtotharaId], references: [id], onDelete: Cascade)
+
+  @@unique([ashtotharaId, num])
+  @@map("ashtothara_names")
+}
+
+// ── STORIES ───────────────────────────────────────────────────────────────────
+model Story {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  emoji       String
+  contentType String   @default("kids_story")  // "kids_story" | "narrative"
+  preview     String
+  body        String   @default("")
+  titleTa     String   @default("")
+  previewTa   String   @default("")
+  bodyTa      String   @default("")
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  deities     StoryDeityMap[]
+
+  @@map("stories")
+}
+
+model StoryDeityMap {
+  storyId  String
+  deityId  String
+
+  story    Story  @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  deity    Deity  @relation(fields: [deityId], references: [id], onDelete: Cascade)
+
+  @@id([storyId, deityId])
+  @@map("story_deity_map")
+}

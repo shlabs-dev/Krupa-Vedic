@@ -1,0 +1,25 @@
+{
+  "name": "vedicpath",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "db:push": "prisma db push",
+    "db:seed": "node prisma/seed.js",
+    "db:studio": "prisma studio",
+    "db:reset": "prisma db push --force-reset && node prisma/seed.js && node prisma/tamil.js",
+    "setup": "npm install && npm run db:push && npm run db:seed && node prisma/tamil.js",
+    "db:tamil": "prisma db push --skip-generate && node prisma/tamil.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.10.2",
+    "next": "^16.1.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.10.2"
+  }
+}
