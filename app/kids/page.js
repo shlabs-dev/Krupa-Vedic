@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 
 export async function generateMetadata() {
   const { t } = await getT();
-  return { title: `${t("nav.kids")} — VedicPath` };
+  return { title: `${t("nav.kids")} — Krupa` };
 }
 
 export default async function KidsPage() {

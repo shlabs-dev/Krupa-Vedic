@@ -39,7 +39,7 @@ export default async function HomePage() {
         <div className="hero-pat" />
         <div className="hero-om"><OmIcon size={70} /></div>
         <p className="hero-ey">{t("home.eyebrow")}</p>
-        <h1 className="hero-h1"><em>Vedic</em><br />Path</h1>
+        <h1 className="hero-h1" lang="en"><em>Krupa</em></h1>
         <p className="hero-sub">{t("home.sub")}</p>
         <p className="hero-mnt dev">{t("home.heroMantra")}</p>
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 0 }}>

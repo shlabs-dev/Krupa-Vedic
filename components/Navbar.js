@@ -21,12 +21,12 @@ export function Navbar() {
     <nav className="nav">
       <Link href="/" className="nav-logo">
         <OmIcon size={30} />
-        VedicPath
+        Krupa
       </Link>
       <div className="nav-right">
         <div className="nav-links">
           {links.map((x) => (
-            <Link key={x.href} href={x.href}
+            <Link key={x.href} href={x.href} prefetch={x.href === "/admin" ? false : undefined}
               className={`nl${path.startsWith(x.href) ? " on" : ""}`}>
               {t(x.k)}
             </Link>

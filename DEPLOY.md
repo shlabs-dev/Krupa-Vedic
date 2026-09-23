@@ -5,8 +5,8 @@
    (package.json is at the top of the zip, as GoDaddy requires).
 2. GoDaddy runs `npm install`, `npm run build`, `npm start` automatically (Node 22).
 3. **Settings → Domain** → choose `krupa.co.in`. HTTPS is automatic.
-4. Admin: `https://krupa.co.in/admin` → username `admin`, password is in `.env.production`.
-   To change it: edit `.env.production` and upload again.
+4. Admin: `https://krupa.co.in/admin` — password is OFF for now. To turn it on, set ADMIN_PASSWORD in `.env.production`.
+   (Anyone who knows the /admin link can edit content while it is off.)
 
 **Your content:** the database file is created at `data/krupa.db` on first start (copied from `prisma/dev.db`).
 Warning: uploading a new zip may reset `data/` on GoDaddy, so anything added through Admin could be lost.

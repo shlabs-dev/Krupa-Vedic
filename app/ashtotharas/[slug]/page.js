@@ -9,7 +9,7 @@ import { Footer } from "@/components/Footer";
 export async function generateMetadata({ params }) {
   const deity = await db.deity.findUnique({ where: { slug: (await params).slug } });
   const { lang } = await getT();
-  return { title: `${deity ? pick(deity, "name", lang) : ""} — ${lang === "ta" ? "அஷ்டோத்திரம்" : "Ashtothara"} — VedicPath` };
+  return { title: `${deity ? pick(deity, "name", lang) : ""} — ${lang === "ta" ? "அஷ்டோத்திரம்" : "Ashtothara"} — Krupa` };
 }
 
 export default async function AshtotharaDeityPage({ params }) {

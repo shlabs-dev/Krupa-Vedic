@@ -80,7 +80,7 @@ function Dashboard() {
   return (
     <div className="pe">
       <div className="ser" style={{ fontSize: 32, fontWeight: 400, marginBottom: 6 }}>Dashboard</div>
-      <div style={{ fontSize: 13, color: "var(--muted)", marginBottom: 26 }}>VedicPath content overview</div>
+      <div style={{ fontSize: 13, color: "var(--muted)", marginBottom: 26 }}>Krupa content overview</div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14, marginBottom: 36 }}>
         {[
           { l: "Deities",     v: stats?.deities,  c: "var(--gold)" },

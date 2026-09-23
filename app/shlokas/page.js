@@ -7,7 +7,7 @@ import { ShlokasList } from "./ShlokasList";
 
 export async function generateMetadata() {
   const { t } = await getT();
-  return { title: `${t("nav.shlokas")} — VedicPath` };
+  return { title: `${t("nav.shlokas")} — Krupa` };
 }
 
 export default async function ShlokaPage({ searchParams }) {

@@ -1,5 +1,6 @@
 // prisma/seed.mjs — re-adds the built-in content (safe to re-run: uses upsert)
 import { db } from "../lib/db.js";
+import { ASHTOTHARA_NAMES } from "../lib/ashtotharaData.js";
 
 async function main() {
   console.log("🌱 Seeding VedicPath database…");
@@ -181,62 +182,8 @@ async function main() {
   // ── ASHTOTHARAS ────────────────────────────────────────────────────────────
   const ashtoData = [
     { deitySlug:"shiva", title:"Shiva Ashtottara Shatanamavali", intro:"The 108 names of Lord Shiva each reveal a divine attribute of the Mahadeva. Chanting removes ignorance and bestows liberation.",
-      names:[
-        { num:1,  name:"ॐ शिवाय नमः",              transliteration:"Om Śivāya Namaḥ",              meaning:"Salutations to the auspicious one" },
-        { num:2,  name:"ॐ महेश्वराय नमः",           transliteration:"Om Maheśvarāya Namaḥ",           meaning:"Salutations to the great lord" },
-        { num:3,  name:"ॐ शम्भवे नमः",              transliteration:"Om Śambhave Namaḥ",              meaning:"Salutations to the source of happiness" },
-        { num:4,  name:"ॐ पिनाकिने नमः",            transliteration:"Om Pinākine Namaḥ",            meaning:"Salutations to the bearer of the Pinaka bow" },
-        { num:5,  name:"ॐ शशिशेखराय नमः",          transliteration:"Om Śaśiśekharāya Namaḥ",          meaning:"Salutations to the moon-crested one" },
-        { num:6,  name:"ॐ वामदेवाय नमः",            transliteration:"Om Vāmadevāya Namaḥ",            meaning:"Salutations to the beautiful god" },
-        { num:7,  name:"ॐ विरूपाक्षाय नमः",        transliteration:"Om Virūpākṣāya Namaḥ",        meaning:"Salutations to the one with special eyes" },
-        { num:8,  name:"ॐ कपर्दिने नमः",            transliteration:"Om Kapardine Namaḥ",            meaning:"Salutations to the matted-haired one" },
-        { num:9,  name:"ॐ नीललोहिताय नमः",         transliteration:"Om Nīlalohitāya Namaḥ",         meaning:"Salutations to the blue-red one" },
-        { num:10, name:"ॐ शंकराय नमः",             transliteration:"Om Śaṅkarāya Namaḥ",             meaning:"Salutations to the bestower of happiness" },
-        { num:11, name:"ॐ शूलपाणये नमः",           transliteration:"Om Śūlapāṇaye Namaḥ",           meaning:"Salutations to the trident-bearer" },
-        { num:12, name:"ॐ खट्वांगिने नमः",         transliteration:"Om Khaṭvāṅgine Namaḥ",         meaning:"Salutations to the bearer of khatvanga staff" },
-        { num:13, name:"ॐ विष्णुवल्लभाय नमः",     transliteration:"Om Viṣṇuvallabhāya Namaḥ",     meaning:"Salutations to the beloved of Vishnu" },
-        { num:14, name:"ॐ गंगाधराय नमः",           transliteration:"Om Gaṅgādharāya Namaḥ",           meaning:"Salutations to the bearer of the Ganga" },
-        { num:15, name:"ॐ ललाटाक्षाय नमः",        transliteration:"Om Lalāṭākṣāya Namaḥ",        meaning:"Salutations to the one with an eye on the forehead" },
-        { num:16, name:"ॐ कालकालाय नमः",          transliteration:"Om Kālakālāya Namaḥ",          meaning:"Salutations to the time of time itself" },
-        { num:17, name:"ॐ कृपानिधये नमः",         transliteration:"Om Kṛpānidhaye Namaḥ",         meaning:"Salutations to the ocean of compassion" },
-        { num:18, name:"ॐ भवाय नमः",              transliteration:"Om Bhavāya Namaḥ",              meaning:"Salutations to existence itself" },
-        { num:19, name:"ॐ शर्वाय नमः",            transliteration:"Om Śarvāya Namaḥ",            meaning:"Salutations to the destroyer of sins" },
-        { num:20, name:"ॐ त्रिलोकेशाय नमः",      transliteration:"Om Trilokesāya Namaḥ",      meaning:"Salutations to the lord of three worlds" },
-        { num:21, name:"ॐ महादेवाय नमः",          transliteration:"Om Mahādevāya Namaḥ",          meaning:"Salutations to the great god" },
-        { num:22, name:"ॐ रुद्राय नमः",           transliteration:"Om Rudrāya Namaḥ",           meaning:"Salutations to the one who makes one weep with devotion" },
-        { num:23, name:"ॐ नीलकण्ठाय नमः",        transliteration:"Om Nīlakaṇṭhāya Namaḥ",        meaning:"Salutations to the blue-throated one" },
-        { num:24, name:"ॐ उमापतये नमः",           transliteration:"Om Umāpataye Namaḥ",           meaning:"Salutations to the consort of Uma" },
-        { num:25, name:"ॐ श्रीकण्ठाय नमः",       transliteration:"Om Śrīkaṇṭhāya Namaḥ",       meaning:"Salutations to the one with a beautiful throat" },
-        { num:26, name:"ॐ विश्वेश्वराय नमः",     transliteration:"Om Viśveśvarāya Namaḥ",     meaning:"Salutations to the lord of the universe" },
-        { num:27, name:"ॐ पशुपतये नमः",          transliteration:"Om Paśupataye Namaḥ",          meaning:"Salutations to the lord of all creatures" },
-        { num:28, name:"ॐ भूतपतये नमः",          transliteration:"Om Bhūtapataye Namaḥ",          meaning:"Salutations to the lord of all beings" },
-        { num:29, name:"ॐ सदाशिवाय नमः",        transliteration:"Om Sadāśivāya Namaḥ",        meaning:"Salutations to the eternally auspicious one" },
-        { num:30, name:"ॐ परमेश्वराय नमः",      transliteration:"Om Parameśvarāya Namaḥ",      meaning:"Salutations to the supreme lord of all" },
-      ]
     },
     { deitySlug:"ganesha", title:"Ganesha Ashtottara Shatanamavali", intro:"Reciting the 108 names of Ganesha before any auspicious undertaking removes obstacles and ensures success. Each name reflects the many virtues of Vighnaharta.",
-      names:[
-        { num:1,  name:"ॐ गणेशाय नमः",         transliteration:"Om Gaṇeśāya Namaḥ",         meaning:"Salutations to the lord of all beings" },
-        { num:2,  name:"ॐ विनायकाय नमः",        transliteration:"Om Vināyakāya Namaḥ",        meaning:"Salutations to the supreme leader" },
-        { num:3,  name:"ॐ विघ्नराजाय नमः",      transliteration:"Om Vighnarājāya Namaḥ",      meaning:"Salutations to the king of obstacles" },
-        { num:4,  name:"ॐ गजाननाय नमः",        transliteration:"Om Gajānanāya Namaḥ",        meaning:"Salutations to the elephant-faced one" },
-        { num:5,  name:"ॐ लम्बोदराय नमः",       transliteration:"Om Lambodarāya Namaḥ",       meaning:"Salutations to the large-bellied one" },
-        { num:6,  name:"ॐ महाकायाय नमः",        transliteration:"Om Mahākāyāya Namaḥ",        meaning:"Salutations to the one of great form" },
-        { num:7,  name:"ॐ गणाध्यक्षाय नमः",    transliteration:"Om Gaṇādhyakṣāya Namaḥ",    meaning:"Salutations to the leader of ganas" },
-        { num:8,  name:"ॐ एकदन्ताय नमः",        transliteration:"Om Ekadantāya Namaḥ",        meaning:"Salutations to the single-tusked one" },
-        { num:9,  name:"ॐ भालचन्द्राय नमः",    transliteration:"Om Bhālachandrāya Namaḥ",    meaning:"Salutations to the moon-crested one" },
-        { num:10, name:"ॐ हेरम्बाय नमः",        transliteration:"Om Herambāya Namaḥ",        meaning:"Salutations to the mother's beloved son" },
-        { num:11, name:"ॐ गणपतये नमः",          transliteration:"Om Gaṇapataye Namaḥ",          meaning:"Salutations to the master of all ganas" },
-        { num:12, name:"ॐ विकटाय नमः",          transliteration:"Om Vikaṭāya Namaḥ",          meaning:"Salutations to the powerful one" },
-        { num:13, name:"ॐ स्कन्दपूर्वजाय नमः", transliteration:"Om Skandapūrvajāya Namaḥ", meaning:"Salutations to the elder brother of Skanda" },
-        { num:14, name:"ॐ वक्रतुण्डाय नमः",    transliteration:"Om Vakratuṇḍāya Namaḥ",    meaning:"Salutations to the curved-trunk one" },
-        { num:15, name:"ॐ शूर्पकर्णाय नमः",    transliteration:"Om Śūrpakarṇāya Namaḥ",    meaning:"Salutations to the winnow-eared one" },
-        { num:16, name:"ॐ गजकर्णकाय नमः",     transliteration:"Om Gajakarṇakāya Namaḥ",     meaning:"Salutations to the elephant-eared one" },
-        { num:17, name:"ॐ धूम्रवर्णाय नमः",    transliteration:"Om Dhūmravarṇāya Namaḥ",    meaning:"Salutations to the smoke-coloured one" },
-        { num:18, name:"ॐ अव्यक्ताय नमः",       transliteration:"Om Avyaktāya Namaḥ",       meaning:"Salutations to the unmanifest one" },
-        { num:19, name:"ॐ सिद्धार्थाय नमः",    transliteration:"Om Siddhārthāya Namaḥ",    meaning:"Salutations to the accomplished one" },
-        { num:20, name:"ॐ सिद्धिदाय नमः",      transliteration:"Om Siddhidāya Namaḥ",      meaning:"Salutations to the bestower of accomplishment" },
-      ]
     },
   ];
 
@@ -247,11 +194,11 @@ async function main() {
     if (!ashto) {
       ashto = await db.ashtothara.create({ data:{ deityId:deity.id, title:a.title, intro:a.intro } });
     }
-    for (const n of a.names) {
+    for (const n of ASHTOTHARA_NAMES[a.deitySlug] || []) {
       await db.ashtotharaName.upsert({
         where:{ ashtotharaId_num:{ ashtotharaId:ashto.id, num:n.num } },
-        update:{ nameDevanagari:n.name, transliteration:n.transliteration, meaning:n.meaning },
-        create:{ ashtotharaId:ashto.id, num:n.num, nameDevanagari:n.name, transliteration:n.transliteration, meaning:n.meaning }
+        update:{ nameDevanagari:n.nameDevanagari, transliteration:n.transliteration, meaning:n.meaning, meaningTa:n.meaningTa },
+        create:{ ashtotharaId:ashto.id, num:n.num, nameDevanagari:n.nameDevanagari, transliteration:n.transliteration, meaning:n.meaning, meaningTa:n.meaningTa }
       });
     }
   }

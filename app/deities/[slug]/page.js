@@ -10,7 +10,7 @@ import { DeityTabs } from "./DeityTabs";
 export async function generateMetadata({ params }) {
   const deity = await db.deity.findUnique({ where: { slug: (await params).slug } });
   const { lang } = await getT();
-  return { title: `${deity ? pick(deity, "name", lang) : "Deity"} — VedicPath` };
+  return { title: `${deity ? pick(deity, "name", lang) : "Deity"} — Krupa` };
 }
 
 export default async function DeityPage({ params }) {

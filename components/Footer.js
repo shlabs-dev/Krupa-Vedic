@@ -16,7 +16,7 @@ export function Footer() {
   return (
     <footer className="footer">
       <div style={{ fontSize: 32, color: "var(--gold)", opacity: 0.7, marginBottom: 16 }}>ॐ</div>
-      <div className="ser" style={{ fontSize: 24, color: "var(--ivory)", fontWeight: 300, marginBottom: 8 }}>VedicPath</div>
+      <div className="ser" style={{ fontSize: 24, color: "var(--ivory)", fontWeight: 300, marginBottom: 8 }}>Krupa</div>
       <div style={{ fontSize: 12, color: "rgba(250,247,242,.33)", letterSpacing: ".08em", marginBottom: 24 }}>
         {t("footer.tag")}
       </div>
@@ -26,7 +26,7 @@ export function Footer() {
         ))}
       </div>
       <div style={{ fontSize: 10, color: "rgba(250,247,242,.16)" }}>
-        © 2025 VedicPath · contact@vedicpath.com · {t("footer.copy")}
+        © {new Date().getFullYear()} Krupa · krupa.co.in · {t("footer.copy")}
       </div>
     </footer>
   );

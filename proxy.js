@@ -11,8 +11,10 @@ export function proxy(req) {
   if (!isAdminPage && !isWriteApi) return NextResponse.next();
 
   const expected = process.env.ADMIN_PASSWORD;
+  // No password set → admin is open (turn protection back on by setting ADMIN_PASSWORD)
+  if (!expected) return NextResponse.next();
   const header = req.headers.get("authorization") || "";
-  if (expected && header.startsWith("Basic ")) {
+  if (header.startsWith("Basic ")) {
     const [user, pass] = atob(header.slice(6)).split(":");
     if (user === "admin" && pass === expected) return NextResponse.next();
   }

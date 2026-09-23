@@ -24,9 +24,6 @@ async function main() {
   for (const [slug, f] of Object.entries(data.vedas))    n += await fill("vedaSection", { slug }, f);
   for (const [slug, f] of Object.entries(data.stories))  n += await fill("story", { slug }, f);
   for (const [slug, f] of Object.entries(data.ashtotharas)) n += await fill("ashtothara", { deity: { slug } }, f);
-  for (const [slug, names] of Object.entries(data.names))
-    for (const [num, meaningTa] of Object.entries(names))
-      n += await fill("ashtotharaName", { num: Number(num), ashtothara: { deity: { slug } } }, { meaningTa });
   // Tamil meanings (பொருள்) for Veda verses — added only if that verse has none yet
   for (const [slug, verses] of Object.entries(data.verses || {})) {
     const section = await db.vedaSection.findUnique({ where: { slug } });
