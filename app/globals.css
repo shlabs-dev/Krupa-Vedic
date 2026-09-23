@@ -32,7 +32,7 @@ body{font-family:'DM Sans','Noto Sans Tamil',sans-serif;background:var(--ivory);
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(196,153,58,0.08) 0%,transparent 70%),linear-gradient(180deg,var(--ivory) 0%,var(--parchment) 100%);position:relative;overflow:hidden;}
 .hero-pat{position:absolute;inset:0;opacity:.025;background-image:repeating-linear-gradient(45deg,var(--charcoal) 0px,var(--charcoal) 1px,transparent 1px,transparent 60px),repeating-linear-gradient(-45deg,var(--charcoal) 0px,var(--charcoal) 1px,transparent 1px,transparent 60px);}
-.hero-om{width:70px;height:70px;color:var(--gold);margin-bottom:28px;animation:flt 6s ease-in-out infinite;opacity:.8;}
+.hero-om{width:90px;height:90px;color:var(--gold);margin-bottom:28px;animation:flt 6s ease-in-out infinite;opacity:.8;}
 @keyframes flt{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
 .hero-ey{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:500;}
 .hero-h1{font-family:'Cormorant Garamond','Noto Serif Tamil',serif;font-size:clamp(52px,8vw,96px);font-weight:300;line-height:1.0;color:var(--charcoal);margin-bottom:8px;letter-spacing:-.02em;}
@@ -45,8 +45,7 @@ body{font-family:'DM Sans','Noto Sans Tamil',sans-serif;background:var(--ivory);
 .btn-g:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
 .btn-sm{padding:9px 20px;font-size:11px;}
 
-/* Tamil home hero: spacing (only the heading is shown) */
-.hero-om { margin-bottom: 12px; width: 90px; height: 90px; }  /* Om symbol ↔ Krupa gap (default was 28px) */
+
 .hero-om svg { width: 90px !important; height: 90px !important; }
 html[lang="ta"] .hero-h1 { margin-bottom: 44px; }  /* Krupa ↔ two buttons gap */
 /* Navbar logo bigger — Tamil only */
