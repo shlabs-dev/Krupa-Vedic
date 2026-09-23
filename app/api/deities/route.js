@@ -17,10 +17,10 @@ export const POST = safe(async (req) => {
     data: {
       slug: body.name.toLowerCase().replace(/\s+/g, "-"),
       name: body.name,
-      epithet: body.epithet,
-      symbol: body.symbol,
+      epithet: body.epithet || "",
+      symbol: body.symbol || "✦",
       color: body.color || "#8A6B2C",
-      description: body.description,
+      description: body.description || "",
       nameTa: body.nameTa || "",
       epithetTa: body.epithetTa || "",
       descriptionTa: body.descriptionTa || "",

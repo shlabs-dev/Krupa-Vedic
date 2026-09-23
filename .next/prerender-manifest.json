@@ -2,6 +2,10 @@
   "version": 4,
   "routes": {
     "/_global-error": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
+      "htmlSize": 8675,
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -29,8 +33,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "8b01826918fd7b03681fafd6011b1413",
-    "previewModeSigningKey": "fb622b02f0990e9490551d0c4bdc667b43f8bf56a42da05d04f27e1c683bd5a4",
-    "previewModeEncryptionKey": "3cca0aa367d1fee354fe4c8b5f31390edda1587ccc31b2f9485aa79fc6bef4eb"
+    "previewModeId": "4877af07d079e1481407e53bd56f8096",
+    "previewModeSigningKey": "109624b9a3b53b8586ddc0217ccb02ee174e9fbb905cb567bba124d884f738eb",
+    "previewModeEncryptionKey": "3447d873581bb62050d71b8b75f2ad073fc013bd11933a7f1589d037c10b8b8a"
   }
 }

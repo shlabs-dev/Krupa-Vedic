@@ -22,7 +22,7 @@ export const POST = safe(async (req) => {
       title: body.title,
       emoji: body.emoji || "📖",
       contentType: body.contentType || "kids_story",
-      preview: body.preview,
+      preview: body.preview || "",
       body: body.body || "",
       titleTa: body.titleTa || "",
       previewTa: body.previewTa || "",
