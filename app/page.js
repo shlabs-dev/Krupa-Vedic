@@ -38,9 +38,9 @@ export default async function HomePage() {
       <section className="hero">
         <div className="hero-pat" />
         <div className="hero-om"><OmIcon size={70} /></div>
-        <p className="hero-ey">{t("home.eyebrow")}</p>
+        {lang !== "ta" && <p className="hero-ey">{t("home.eyebrow")}</p>}
         <h1 className="hero-h1" lang="en"><em>Krupa</em></h1>
-        <p className="hero-sub">{t("home.sub")}</p>
+        {lang !== "ta" && <p className="hero-sub">{t("home.sub")}</p>}
         <p className="hero-mnt dev">{t("home.heroMantra")}</p>
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 0 }}>
           <Link href="/shlokas" className="btn">{t("home.exploreShlokas")}</Link>
