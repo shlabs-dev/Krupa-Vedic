@@ -49,8 +49,8 @@ body{font-family:'DM Sans','Noto Sans Tamil',sans-serif;background:var(--ivory);
 .hero-om svg { width: 90px !important; height: 90px !important; }
 html[lang="ta"] .hero-h1 { margin-bottom: 44px; }  /* Krupa ↔ two buttons gap */
 /* Navbar logo bigger — Tamil only */
-html[lang="ta"] .nav-logo { font-size: 27px; gap: 12px; }
-html[lang="ta"] .nav-logo svg { width: 38px !important; height: 38px !important; }
+.nav-logo { font-size: 27px; gap: 12px; }
+.nav-logo svg { width: 38px !important; height: 38px !important; }
 
 /* SECTIONS */
 .sec{padding:80px 48px;max-width:1200px;margin:0 auto;}
